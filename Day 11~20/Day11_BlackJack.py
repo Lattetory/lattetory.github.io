@@ -3,6 +3,130 @@
 # Day 11 Project
 # Making the BlackJack project
 
+# 내가 찾은 답!!! 겨우 혼자 했다!! 
+# logo = '''
+# .------.         _     _            _    _            _
+# |A_  _ |.       | |   | |          | |  (_)          | |
+# |( \\/ ).------. | |__ | | __ _  ___| | ___  __ _  ___| | __
+# | \\  / |K /\\  | | '_ \\| |/ _' |/ __| |/ / |/ _' |/ __| |/ /
+# |  \\/  | /  \\ | | |_) | | (_| | (__|   <| | (_| | (__|   <
+# '------| \\  / | |_.__/|_|\\__,_|\\___|_|\\_\\ |\\__._|\\___|_|\\_\\
+#        |  \\/ K|                        _/ |
+#        '------'                       |__/
+# '''
+
+# import random
+
+# cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+
+# def start():
+#     begin = input("\nDo you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
+#     if begin == "n":
+#         print("\nGood Bye!\n")
+#         restart = False
+#         print("\n" * 10)
+#         start()
+#     else:
+#         print("\n" * 10)
+#         print(logo)
+#         restart = True
+#         user_cards = []
+#         dealer_cards = []
+
+#         def final_hand():
+#             print(f"\nYour final hand: {user_cards}, final score: {sum(user_cards)}")
+#             print(f"Dealer's final hand: {dealer_cards}, final score: {sum(dealer_cards)}\n")
+
+#         def deal_card():
+#             user_cards.append(random.choice(cards))
+#             dealer_cards.append(random.choice(cards))
+#             A_change()
+#             print(f"\nYour cards: {user_cards}, current score: {sum(user_cards)}")
+#             print(f"Dealer's first card: {dealer_cards[0]}\n")
+
+#         # A 카드 체인지
+#         def A_change():
+#             for i in user_cards:
+#                 if sum(user_cards) > 21 and i == 11 :
+#                     user_cards.remove(i)
+#                     user_cards.append(1)
+#             for i in dealer_cards:
+#                 if sum(dealer_cards) > 21 and i == 11 :
+#                     dealer_cards.remove(i)
+#                     dealer_cards.append(1)
+
+
+#         def no_keep_black():
+#             # 블랙잭일시 
+#             if user_cards == [ 10, 11 ] or user_cards == [ 11, 10 ]:
+#                 if dealer_cards == [ 10, 11 ] or dealer_cards == [ 11, 10 ]:
+#                     final_hand()
+#                     print("Both BlackJack! :) Draw!")
+#                     start()
+#                 else:
+#                     final_hand()
+#                     print("BlackJack! :) You win!")
+#                     start()
+                
+#             if dealer_cards == [ 10, 11 ] or dealer_cards == [ 11, 10 ]:
+#                 final_hand()
+#                 print("BlackJack! :( You lose!")
+#                 start()
+
+#         def no_keep_just():
+#             # 단순비교시
+#             if sum(user_cards) > sum(dealer_cards):
+#                 final_hand()
+#                 print("You Win!")
+#                 start()
+#             elif sum(dealer_cards) > sum(user_cards):
+#                 final_hand()
+#                 print("You went over. You lose.\n")
+#                 start()
+#             else:
+#                 final_hand()
+#                 print("Draw.\n")
+#                 start()
+
+#     # 이건 21 초과시
+#         def result():
+#             if sum(user_cards) > 21:
+#                 final_hand()
+#                 print("You went over. You lose.\n")
+#                 start()
+#             elif sum(dealer_cards) > 21:
+#                 final_hand()
+#                 print("You Win!")
+#                 start()
+#             else:
+#                 pass
+
+#         user_cards.append(random.choice(cards))
+#         dealer_cards.append(random.choice(cards))
+#         deal_card()
+#         no_keep_black()
+#         result()
+        
+#         # 여긴 카드 더 받고 진행 할건지만
+#         while restart == True:
+#             keep = input("Type 'y' to get another card, type 'n' to pass: ").lower()
+#             if keep == "y":
+#                 deal_card()
+#                 result()
+#                 restart = True
+#             elif keep == "n":
+#                 no_keep_black()
+#                 no_keep_just()
+#                 restart = False
+#                 print("\n" * 10)
+#                 start()
+#             else: 
+#                 print(keep)
+
+# start()
+
+
+# 정답  와.. 이렇게 간단한거였다니.. 
 logo = '''
 .------.         _     _            _    _            _
 |A_  _ |.       | |   | |          | |  (_)          | |
@@ -16,101 +140,85 @@ logo = '''
 
 import random
 
-cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+def deal_card():
+    """Returns a random card from the deck"""
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(cards)
+    return card
 
-def start():
-    begin = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
-    if begin == "n":
-        print("Good Bye!")
-    else:
-        print("\n" * 10)
-        print(logo)
-        restart = True
-        user_cards = []
-        dealer_cards = []
-
-        def final_hand():
-            print(f"Your final hand: {user_cards}, final score: {sum(user_cards)}")
-            print(f"Dealer's final hand: {dealer_cards}, final score: {sum(dealer_cards)}\n")
-
-        def deal_card():
-            user_cards.append(random.choice(cards))
-            dealer_cards.append(random.choice(cards))
-            print(f"\nYour cards: {user_cards}, current score: {sum(user_cards)}")
-            print(f"Dealer's first card: {dealer_cards[0]}\n")
-            # 여기서 승패 여부 
-            # 승패여부 함수를 따로 뺄까.. 
-            # 그래야겠네 keep n 눌렀을때 확인하려면 
-            # 결과함수도 승 패 무 이렇게 나눠야되나
-        def result():
-            if sum(user_cards) > 21:
-                final_hand()
-                print("You went over. You lose.\n")
-                start()
-            elif sum(dealer_cards) > 21:
-                final_hand()
-                print("You Win!")
-                start()
-            else:
-                pass
-
-        user_cards.append(random.choice(cards))
-        dealer_cards.append(random.choice(cards))
-        deal_card()
-        result()
-        
-        # 여긴 카드 더 받고 진행 할건지만
-        while restart == True:
-            keep = input("Type 'y' to get another card, type 'n' to pass: ").lower()
-            if keep == "y":
-                deal_card()
-                result()
-                restart = True
-            elif keep == "n":
-                result()
-                restart = False
-                print("\n" * 10)
-                start()
-            else: 
-                print(keep)
-
-start()
-
-    # 카드 랜덤 리스트 , 총합 d
-    # 딜러카드 첫장만 공개 d
-    # 유저 카드 더 뽑을지 d
-    # 더 뽑으면 카드 추가, 합산 d
-    # 블랙잭이면 무조건 승리
-    # 21초과시 유저 패배ㅇ
-    # 또는 딜러가 유저보다 낮으면 승리
-    # 그만 뽑으면 딜러 카드 공개
-    # 딜러는 17이하일 경우 카드 뽑기
-    # 딜러가 21초과시 유저 승리
-    # 계속 할건지
-
-        
+def calculate_score(cards):
+    """Take a list of cards and return the scor calculated from cards"""
+    if sum(cards) == 21 and len(cards) == 2: # 블랙잭 확인
+        # if 11 in cards and 10 in cards 
+        # 해도 되지만 어차피 2개카드중 21 나오는건 10, 11뿐
+        return 0
     
-    # restart = True
+    if 11 in cards and sum(cards) > 21: # A 카드 체인지
+        cards.remove(11)
+        cards.append(1)
 
-    # while restart == True:
-    #     pick_operations()
-    #     pick_op = input("Pick an operation: ")
-    #     num2 = float(input("What's the next number? : "))
-    #     for a in operations:
-    #         if a == (pick_op):
-    #             answer = operations[pick_op](num1, num2)
-    #             print(f"{num1} {pick_op} {num2} = {answer}")
-    #     save = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ").lower()
-    #     if save == "y":
-    #         num1 = answer
-    #         restart = True
-    #     else:
-    #         restart = False
-    #         print("\n" * 7)
-    #         start()
+    return sum(cards)
 
-# if begin == "y":
-#     start()
+# 점수 비교    허허 이렇게 간단하다니...
+# 순서대로 검사하되 리턴으로 빠져나옴
+def compare(U_score, C_score):
+    if U_score == C_score:
+        return "Draw."
+    elif C_score == 0:
+        return "Lose, opponet has Blackjack! :("
+    elif U_score == 0:
+        return "Win with a Blackjack! :)"
+    elif U_score > 21:
+        return "You went over. You lose :("
+    elif C_score > 21:
+        return "Opponent went over. You win :)"    
+    elif U_score > C_score:
+        return "You win!"
+    else:
+        return "You lose."
+
+def play_game():
+    print(logo)
+    user_cards = []
+    computer_cards = []
+    computer_score = -1 # 딜러 17이하 일때 카드 뽑을때 정의 안되어 오류떠서 변수선언
+    user_score = -1 # not is_game_over while문 일때 역시나 오류떠서 선언
+    is_game_over = False
+
+    for _ in range(2): # _ > 특정 변수가 실제로 필요하지 않기 때문
+        user_cards.append(deal_card())
+        computer_cards.append(deal_card())
+
+    # 사용자가 계속 카드 받을 수 있도록
+    while not is_game_over:
+        user_score = calculate_score(user_cards)
+        computer_score = calculate_score(computer_cards)
+        print(f"\nYour cards: {user_cards}, current score: {user_score}")
+        print(f"Dealer's first card: {computer_cards[0]}\n")
+
+        if user_score == 0 or computer_score == 0 or user_score > 21:
+            is_game_over = True
+        else:
+            user_should_deal = input("Type 'y' to get another card, type 'n' to pass: ").lower()
+            if user_should_deal == 'y':
+                user_cards.append(deal_card())
+            else:
+                is_game_over = True
+
+    # 딜러가 자신의 전략을 따를 수 있도록
+    while computer_score != 0 and computer_score < 17: 
+        # 아하 나 뽑을때 같이 뽑는게 아니구나 
+        computer_cards.append(deal_card())
+        computer_score = calculate_score(computer_cards)
+
+
+    print(f"\nYour final hand: {user_cards}, final score: {user_score}")
+    print(f"Dealer's final hand: {computer_cards}, final score: {computer_score}\n")
+    print(compare(user_score, computer_score))
+
+while input("\nDo you want to play a game of Blackjack? Type 'y' or 'n': ").lower() == "y":
+    print("\n" * 15)
+    play_game()
 
 
 
