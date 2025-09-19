@@ -1,10 +1,6 @@
-# 250918~19 Day 9 ~ 10 of Python
-
-
-
-
-
-
+# 250919 Day 10 of Python
 
 # Day 13 Project
-# Debugging
+# Debugging tips
+
+# 중단점, print 활용 잘하기~, 자주 출력해보기~
