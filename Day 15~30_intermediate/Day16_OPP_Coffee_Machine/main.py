@@ -1,3 +1,8 @@
+# 251008 Day 29 of Python
+
+# Day 16 Project
+# Making the OPP Coffee Machine project
+
 from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
 from money_machine import MoneyMachine
@@ -18,14 +23,11 @@ while is_on:
         money_machine.report()
     else:
         drink = menu.find_drink(choice)
-        print(drink)
-        if coffee_maker.is_resource_sufficient(drink["ingredients"]):
-            print("ddd")
-
-            # payment = process_coins()
-            # if is_transaction_successful(payment, drink["cost"]):
-            #     make_coffee(choice, drink["ingredients"])
-
-
-
-
+        if coffee_maker.is_resource_sufficient(drink):
+            if money_machine.make_payment(drink.cost):
+        # 위 두 문장을 합쳐서
+        # if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+        # 라고 할수도있음! 
+                coffee_maker.make_coffee(drink)
+        else:
+            is_on = False
