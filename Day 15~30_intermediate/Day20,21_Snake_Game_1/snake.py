@@ -15,13 +15,24 @@ class Snake():
         self.create_snake()
         self.head = self.snakes[0]
     
+    # make a snake 1
     def create_snake(self):
         for position in STARTING_POSITION:
+            self.add_segment(position)
+
+    # make a snake 2
+    def add_segment(self, position): 
             new_snake = Turtle(shape= "square")
             new_snake.color("white")
             new_snake.penup()
             new_snake.goto(position)
             self.snakes.append(new_snake)
+    
+    # add a new segment(snake) to the snake.
+    def extend(self):
+        self.add_segment(self.snakes[-1].position()) # 마지막 snake 뒤에 추가
+
+
 
     # Moves Snakes
     def move(self):
