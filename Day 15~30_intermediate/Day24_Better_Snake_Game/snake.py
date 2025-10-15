@@ -28,6 +28,13 @@ class Snake():
             new_snake.goto(position)
             self.snakes.append(new_snake)
     
+    def reset(self):
+        for seg in self.snakes:
+            seg.goto(1000, 1000)
+        self.snakes.clear() # snakes 의 리스트 전부 삭제
+        self.create_snake() # 새로 생성
+        self.head = self.snakes[0] # haed 정해주기
+
     # add a new segment(snake) to the snake.
     def extend(self):
         self.add_segment(self.snakes[-1].position()) # 마지막 snake 뒤에 추가

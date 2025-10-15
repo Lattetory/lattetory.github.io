@@ -41,22 +41,13 @@ while game_is_on:
 
     # Detect collision with wall.
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280 :
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
-    # Detect collision with tail.
-    # for snake1 in snake.snakes:
-    #     if snake1 == snake.head:
-    #         pass
-    #     elif snake.head.distance(snake1) < 10:
-    #         game_is_on = False
-    #         scoreboard.game_over()
-    # 를 슬라이싱으로 줄여서 쓸 수 있음
     for snake1 in snake.snakes[1:]:
         if snake.head.distance(snake1) < 10:
-            game_is_on = False
-            scoreboard.game_over()
-
+            scoreboard.reset()
+            snake.reset()
 
 
 screen.exitonclick()

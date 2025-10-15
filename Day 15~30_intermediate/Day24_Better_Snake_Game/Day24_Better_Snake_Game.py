@@ -6,6 +6,10 @@
 # https://docs.python.org/3/library/turtle.html
 # 만들었던 뱀게임 수정하기
 
+file = open("my_file.txt")
 
+contents = file.read()
 
+print(contents)
 
+file.close()
