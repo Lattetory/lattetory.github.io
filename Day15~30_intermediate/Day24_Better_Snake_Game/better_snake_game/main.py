@@ -1,4 +1,4 @@
-# 251015 Day 36 of Python
+# 251015,19 Day 36,40 of Python
 
 # Day 24 Project
 # Making the better snake game project
