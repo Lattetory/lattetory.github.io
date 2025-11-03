@@ -17,12 +17,21 @@
 # 음.. 난 왜 안되징;;
 # 여튼 이렇게 open 하고 close 하는 대신 (close 잘 까먹게 된다함)
 
-with open("new_file.txt", mode= "w") as file:
+with open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/new_file.txt", mode= "w") as file:
     file.write("new file.")
 
 # 이렇게 할 수도 있다 하나 역시나 난 왜 안열리냐;
 # 음. 새로 파일 만들어진건 상위폴더에 만들어진다 
 # 거기에 만들어야되는건가 여튼 넘어감
+
+# 오!! 경로 써진것처럼 써야 되는구나 ~ 
+# 그냥 new_file.txt 만 쓰면 /Udemy/Python_bootcamp 파일에 만들어짐!
+# 줄여서 ../../ 이런식으로 쓸수있음!
+# 근데 모르겠다 
+# 강의에선 /Users/angela/Desktop/my_file.txt 를 줄여서
+# ../../Desktop/my_file.txt 로 썼는데
+# 나는 왜 안대냥
+
 
 # read() = 읽기 / "a"
 # write() = 쓰기 / "w" / 전에껀 초기화됨
