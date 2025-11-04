@@ -14,52 +14,61 @@
 # Hint 2 : This method will also help you: http://www.w3schools.com/python/ref_string_replace.asp
 # Hint 3 : This method will help you : http://www.w3schools.com/python/ref_string_strip.asp
 
+# 내가 찾은 답!
+# 길긴 하지만 혼자 해냈다는게 멋지군
+# # 편지 불러오기
+# with open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Input/Letters/starting_letter.txt") as letter_file:
+#     letter = letter_file.read()
+# # print(letter)
 
-# 상대 경로 / 절대 경로
+# # 이름 불러오기
+# line = 0
 
-# 절대 경로 
-# 항상 /(슬래시) 로 시작 or  C: or D: 로 시작하는 경로
-
-# 상대 경로
-# ./ (점슬래시) 는 현재 폴더를 의미
-# .. (점 두개)는 한단계 위 폴더
-
-
-# 내용 불러오기
-startletter = open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Input/Letters/starting_letter.txt", "r")
-line = startletter.readlines()
-dearname = line[0]
-# 이름 불러오기
-invitedname = open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Input/Names/invited_name.txt", "r")
-lines = 0
-names = invitedname.readlines(lines + 1)
-name = names[0].strip("\n") # 이름 
-
+# # 반복하기
 # for i in range(7):
-#     names = invitedname.readlines(lines + 1)
-#     print(names)
-#     lines += 1
+
+#     # print(line)
+#     with open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Input/Names/invited_name.txt") as names_file:
+#         names = names_file.readlines()
+#     print(names[line])
+#     # print(line)
+
+
+#     # 이름 바꿔넣기
+#     changename = letter.replace("[name]", names[line].strip("\n"))
+
 #     print(changename)
-# changename = dearname.replace("[name]", names)
-# print(changename)
 
-# 이름 바꾸기
-changename = dearname.replace("[name]", name)
+#     # 저장하기
+#     with open(f"/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Output/ReadyToSend/letter_for_{names[line].strip("\n")}.txt", mode= "w") as letter_for_file:
+#         letter_for = letter_for_file.write(changename)
+    
+#     line += 1
 
-print(changename)
-
-# 문장안에 이름 어케바꾸지
-
-
-# with open(f"/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/{name}].txt", mode= "w") as file:
-#     file.write("new file.")
+# 왓쉬 만들어따 대박
 
 
+# 정답
+
+PLACEHOLDER = "[name]"
+
+with open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Input/Names/invited_name.txt") as names_file:
+        names = names_file.readlines()
+
+with open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Input/Letters/starting_letter.txt") as letter_file:
+    letter_contents = letter_file.read()
+    for name in names:
+        stripped_name = name.strip()
+        new_letter = letter_contents.replace(PLACEHOLDER, stripped_name)
+        with open(f"/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/mail_merge/Output/ReadyToSend/letter_for_{stripped_name}.txt", mode= "w") as completed_letter:
+            completed_letter.write(new_letter)
+
+# 와 짱 간단하다니..
 
 
 
 
-
+# 위 힌트 링크들 관련 
 
 # # 문자열 바꾸기
 # names = "I like bananas"

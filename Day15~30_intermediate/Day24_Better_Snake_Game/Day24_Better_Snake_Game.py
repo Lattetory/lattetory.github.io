@@ -38,3 +38,13 @@ with open("/Udemy/Python_bootcamp/Day15~30_intermediate/Day24_Better_Snake_Game/
 # append() = 추가 / "a" / 전에꺼 + 추가
 # 만약 파일이 없다면 새로 만들기도 가능 (위 코드처럼) 실행하면 생김
 # write 모드일때만 가능!
+
+
+# 상대 경로 / 절대 경로
+
+# 절대 경로 
+# 항상 /(슬래시) 로 시작 or  C: or D: 로 시작하는 경로
+
+# 상대 경로
+# ./ (점슬래시) 는 현재 폴더를 의미
+# .. (점 두개)는 한단계 위 폴더
