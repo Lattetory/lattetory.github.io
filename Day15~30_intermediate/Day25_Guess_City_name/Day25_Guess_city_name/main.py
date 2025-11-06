@@ -2,6 +2,7 @@
 
 # Day 25 Project
 # Working with CSV Files and Analysing Data with Pandas
+# Making the guess city name game project
 
 # 1. Convert the guess to Title case
 # 2. Check if the guess is among the 50 states

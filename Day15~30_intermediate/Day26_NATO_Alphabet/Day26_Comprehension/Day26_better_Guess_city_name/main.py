@@ -22,14 +22,21 @@ while len(guessed_states) < 50:
 
     answer_state = screen.textinput(title=f"{len(guessed_states)}/50 States Correct", prompt="What's another state's name?").title()
 
+    # if answer_state == "Exit":
+    #     missing_states = [] 
+    #     for state in all_states: # 못맞춘 주들 
+    #         if state not in guessed_states:
+    #             missing_states.append(state)
+    #     new_data = pandas.DataFrame(missing_states)
+    #     new_data.to_csv("Day15~30_intermediate\Day26_NATO_Alphabet\Day26_better_Guess_city_name\\states_to_learn.csv")
+    #     break
+    # 를 List Comprehension 으로 줄일 수 있음
     if answer_state == "Exit":
-        missing_states = [] 
-        for state in all_states: # 못맞춘 주들 
-            if state not in guessed_states:
-                missing_states.append(state)
+        missing_states = [state for state in all_states if state not in guessed_states] 
         new_data = pandas.DataFrame(missing_states)
         new_data.to_csv("Day15~30_intermediate\Day26_NATO_Alphabet\Day26_better_Guess_city_name\\states_to_learn.csv")
         break
+
     if answer_state in all_states: 
         guessed_states.append(answer_state)
         t = turtle.Turtle()
@@ -39,21 +46,6 @@ while len(guessed_states) < 50:
         t.goto(int(state_data.x), int(state_data.y))
         t.write(answer_state) # state_data.state.item() 도 되지만 저게 더 간단함
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # 각 주의 좌표 값 얻기
